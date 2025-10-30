@@ -18,7 +18,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
       child: Column(
         children: [
           const SizedBox(height: 60),
-          CelebrityAvatar(),
+          const CelebrityAvatar(),
           const SizedBox(height: 30),
           const Text(
             'Welcome Back',
@@ -40,9 +40,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             ),
           ),
           const SizedBox(height: 50),
-          LoginCard(),
+          const LoginCard(),
           const SizedBox(height: 30),
-          SignupTextRow(),
+          const SignupTextRow(),
         ],
       ),
     );

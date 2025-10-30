@@ -10,7 +10,7 @@ class LoginView extends StatelessWidget {
     return Scaffold(
       body: Container(
         height: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -20,9 +20,9 @@ class LoginView extends StatelessWidget {
             ],
           ),
         ),
-        child: SafeArea(
+        child: const SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
             child: LoginViewBody(),
           ),
         ),
