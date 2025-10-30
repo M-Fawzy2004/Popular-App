@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:first_app/feature/auth/presentation/view/login_view.dart';
 import 'package:first_app/feature/home/data/model/populer_model.dart';
 import 'package:first_app/feature/home/presentation/manager/favorite_cubit/favorites_cubit.dart';
 import 'package:first_app/feature/home/presentation/manager/favorite_cubit/favorites_state.dart';
@@ -63,6 +65,24 @@ class _HomeViewBodyState extends State<HomeViewBody> {
             children: [
               const WelcomeHeader(),
               const Spacer(),
+              IconButton(
+                onPressed: () async {
+                  await FirebaseAuth.instance.signOut();
+                  if (mounted) {
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const LoginView(),
+                      ),
+                      (_) => false,
+                    );
+                  }
+                },
+                icon: const Icon(
+                  Icons.logout,
+                  color: Colors.red,
+                ),
+              ),
               BlocBuilder<FavoritesCubit, FavoritesState>(
                 builder: (context, state) {
                   final favoritesCubit = context.read<FavoritesCubit>();
@@ -190,7 +210,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
           ),
           const SizedBox(height: 16),
           Text(
-            'لا توجد نتائج',
+            'No celebrities found',
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
@@ -199,7 +219,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
           ),
           const SizedBox(height: 8),
           Text(
-            'لم يتم العثور على مشاهير في هذا التصنيف',
+            'Try a different filter',
             style: TextStyle(
               fontSize: 14,
               color: Colors.grey[500],
@@ -218,7 +238,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
       case 'Actress':
         return 'ممثلة';
       case 'Director':
-        return 'مدير';
+        return 'مخرج';
       case 'Producer':
         return 'منتج';
       default:

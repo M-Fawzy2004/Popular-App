@@ -94,7 +94,8 @@ class PersonDetailsSheet extends StatelessWidget {
                   final isFavorite = favoritesCubit.isFavorite(person);
 
                   return CustomActionButton(
-                    label: isFavorite ? "إزالة من المفضلة" : "إضافة للمفضلة",
+                    label:
+                        isFavorite ? "Removed favorites" : "Add to favorites",
                     icon: isFavorite ? Icons.favorite : Icons.favorite_border,
                     backgroundColor: isFavorite ? Colors.orange : Colors.red,
                     textColor: Colors.white,
@@ -105,8 +106,8 @@ class PersonDetailsSheet extends StatelessWidget {
                         SnackBar(
                           content: Text(
                             isFavorite
-                                ? 'تم إزالة ${person.name} من المفضلة'
-                                : 'تم إضافة ${person.name} للمفضلة',
+                                ? 'Removed ${person.name} from favorites'
+                                : 'Added ${person.name} to favorites',
                           ),
                           backgroundColor:
                               isFavorite ? Colors.orange : Colors.green,
@@ -123,7 +124,7 @@ class PersonDetailsSheet extends StatelessWidget {
               ),
               const SizedBox(width: 12),
               CustomActionButton(
-                label: "التفاصيل",
+                label: "Details",
                 icon: Icons.info,
                 backgroundColor: Colors.blue,
                 textColor: Colors.white,

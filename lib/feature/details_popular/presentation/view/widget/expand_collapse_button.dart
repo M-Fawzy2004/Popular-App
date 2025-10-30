@@ -29,7 +29,7 @@ class ExpandCollapseButton extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              isExpanded ? 'إظهار أقل' : 'إظهار المزيد',
+              isExpanded ? 'Show less' : 'Show more',
               style: const TextStyle(
                 color: AppColors.secondary,
                 fontWeight: FontWeight.w600,

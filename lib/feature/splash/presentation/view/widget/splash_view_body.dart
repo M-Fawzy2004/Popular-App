@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:first_app/feature/auth/presentation/view/login_view.dart';
+import 'package:first_app/feature/home/presentation/view/home_view.dart';
 import 'package:flutter/material.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -18,19 +20,37 @@ class _SplashViewBodyState extends State<SplashViewBody> {
     super.initState();
 
     Future.delayed(const Duration(milliseconds: 150), () {
-      setState(() {
-        _opacity = 1.0;
-        _scale = 1.0;
-      });
+      if (mounted) {
+        setState(() {
+          _opacity = 1.0;
+          _scale = 1.0;
+        });
+      }
     });
 
     Timer(const Duration(seconds: 3), () {
-      Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(builder: (context) => const LoginView()),
-        (_) => false,
-      );
+      _checkAuthAndNavigate();
     });
+  }
+
+  void _checkAuthAndNavigate() {
+    User? user = FirebaseAuth.instance.currentUser;
+
+    if (mounted) {
+      if (user != null) {
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => const HomeView()),
+          (_) => false,
+        );
+      } else {
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => const LoginView()),
+          (_) => false,
+        );
+      }
+    }
   }
 
   @override

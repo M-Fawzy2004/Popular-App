@@ -1,3 +1,4 @@
+import 'package:first_app/feature/auth/presentation/view/register_view.dart';
 import 'package:flutter/material.dart';
 
 class SignupTextRow extends StatelessWidget {
@@ -17,7 +18,14 @@ class SignupTextRow extends StatelessWidget {
           ),
         ),
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const RegisterView(),
+              ),
+            );
+          },
           child: const Text(
             'Sign Up',
             style: TextStyle(

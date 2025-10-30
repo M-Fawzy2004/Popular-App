@@ -1,0 +1,32 @@
+import 'package:first_app/core/theme/app_colors.dart';
+import 'package:first_app/feature/auth/presentation/view/widget/register_view_body.dart';
+import 'package:flutter/material.dart';
+
+class RegisterView extends StatelessWidget {
+  const RegisterView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        height: double.infinity,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color(0xFF0D47A1),
+              AppColors.secondary,
+            ],
+          ),
+        ),
+        child: const SafeArea(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+            child: RegisterViewBody(),
+          ),
+        ),
+      ),
+    );
+  }
+}

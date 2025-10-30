@@ -89,7 +89,9 @@ class _LoginFormState extends State<LoginForm> {
           ),
           const SizedBox(height: 40),
           _isLoading
-              ? const CircularProgressIndicator(color: Colors.white)
+              ? const CircularProgressIndicator(
+                  color: Color(0xFF095380),
+                )
               : CustomButton(
                   onTap: () {
                     if (formKey.currentState!.validate()) {

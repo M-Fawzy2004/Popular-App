@@ -1,10 +1,10 @@
 import 'package:first_app/feature/auth/presentation/view/widget/celebrity_avatar.dart';
-import 'package:first_app/feature/auth/presentation/view/widget/login_card.dart';
+import 'package:first_app/feature/auth/presentation/view/widget/register_card.dart';
 import 'package:first_app/feature/auth/presentation/view/widget/signup_text_row.dart';
 import 'package:flutter/material.dart';
 
-class LoginViewBody extends StatelessWidget {
-  const LoginViewBody({super.key});
+class RegisterViewBody extends StatelessWidget {
+  const RegisterViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class LoginViewBody extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 50),
-          const LoginCard(),
+          const RegisterCard(),
           const SizedBox(height: 30),
           const SignupTextRow(),
         ],

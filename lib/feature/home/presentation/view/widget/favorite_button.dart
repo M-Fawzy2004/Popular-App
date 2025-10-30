@@ -55,8 +55,8 @@ class FavoriteButton extends StatelessWidget {
       SnackBar(
         content: Text(
           isAdded
-              ? 'تم إضافة ${person.name} للمفضلة'
-              : 'تم إزالة ${person.name} من المفضلة',
+              ? 'Added ${person.name} from favorites'
+              : 'Removed ${person.name} from favorites',
           style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
